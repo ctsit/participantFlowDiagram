@@ -1,0 +1,60 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: participantFlowDiagram - an R package the graphically shows the progress of research participants through a study protocol
+message:
+  If you use this software, please cite it with the metadata
+  in CITATION.cff
+type: software
+authors:
+  - family-names: Chase
+    given-names: Philip B
+    email: pbc@ufl.edu
+    affiliation: University of Florida
+    orcid: https://orcid.org/0000-0002-5318-9420
+  - family-names: Kamma
+    given-names: Sai Pavan
+    email: saipavankamma@ufl.edu
+    affiliation: University of Florida
+    orcid: https://orcid.org/0009-0004-4619-0409
+  - family-names: James-Woodley
+    given-names: Laurence
+    email: lawjames1@ufl.edu
+    affiliation: University of Florida
+    orcid: https://orcid.org/0000-0002-6418-2742
+  - family-names: Stoffs
+    given-names: Taryn L
+    email: tls@ufl.edu
+    affiliation: University of Florida
+    orcid: https://orcid.org/0000-0002-0830-8179
+  - family-names: Barnes
+    given-names: Christopher P
+    email: cpb@ufl.edu
+    affiliation: University of Florida
+    orcid: https://orcid.org/0000-0001-7114-1992
+  - family-names: Williams
+    given-names: Natalie
+    affiliation: McMaster University
+    orcid: https://orcid.org/0009-0004-2983-1542
+  - family-names: Carpenter
+    given-names: Kathryn
+    affiliation: University of Florida
+  - family-names: Balise
+    given-names: Raymond
+    affiliation: University of Miami
+    orcid: https://orcid.org/0000-0002-9856-5901
+repository-code:
+  https://github.com/ctsit/participantFlowDiagram/
+url:
+  https://ctsit.github.io/participantFlowDiagram/
+abstract:
+  participantFlowDiagram helps a study team find issues in the progress
+  of study participants through a research protocol by graphically
+  presenting summary data of their progress.
+keywords:
+  - clinical science
+  - data management
+license: Apache-2.0
+version: 0.1.0
+date-released: '2025-07-08'

@@ -1,0 +1,220 @@
+---
+title: "Getting Started"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(participantFlowDiagram)
+```
+
+# Overview
+
+`participantFlowDiagram` helps a study team find issues in the progress of study participants through a research protocol by graphically presenting summary data of their progress. It is designed to show the complexity of that flow and summary state of the participants with as little code as possible.  
+
+```{r example_setup, include=FALSE }
+
+consent_tracking_data <- readr::read_csv("consent_tracking_data.csv") |>
+  dplyr::mutate(dplyr::across(dplyr::everything(), as.factor))
+
+# Name the parent node and Family name of the children child at each step
+steps <- dplyr::tribble(
+  ~parent, ~child,
+  "Approached", "interest",
+  "interest_yes", "eligibility_scheduling",
+  "eligibility_scheduling_willing", "eligibility",
+  "eligibility_yes", "consent_scheduling",
+  "consent_scheduling_yes", "consent"
+)
+
+pretty_labels_template <- get_pretty_labels_template(
+  participant_level_progress = consent_tracking_data,
+  parents = steps$parent,
+  children = steps$child
+)
+
+# Uncomment this code and run it to turn the pretty_labels_template
+# into dplyr::tribble() code. Paste the tribble code below assigning
+# it to the object "pretty_labels", re-comment these lines,
+# then edit the text in the new_label column to make the pretty
+# labels you'd like to see in the gtsummary table and the mermaid diagram.
+#
+# devtools::install_github("LukasWallrich/timesaveR")
+# pretty_labels_template |>
+#   timesaveR::to_tribble(show = T)
+
+pretty_labels <- tibble::tribble(
+  ~variable,                 ~row_type, ~plain_label,                        ~pretty_label,                       
+   "interest",                "label",   "interest",                          "Interest",                         
+   "interest",                "level",   "interest_no",                       "Interested",                      
+   "interest",                "level",   "interest_yes",                      "Not interested",                     
+   "eligibility_scheduling",  "label",   "eligibility_scheduling",            "Eligibility Scheduling",           
+   "eligibility_scheduling",  "level",   "eligibility_scheduling_ltfu",       "Lost to follow-up",      
+   "eligibility_scheduling",  "level",   "eligibility_scheduling_unknown",    "Unknown",   
+   "eligibility_scheduling",  "level",   "eligibility_scheduling_unwilling",  "Unwilling to\n schedule", 
+   "eligibility_scheduling",  "level",   "eligibility_scheduling_willing",    "Willing to\n schedule",   
+   "eligibility",             "label",   "eligibility",                       "Eligibility",                      
+   "eligibility",             "level",   "eligibility_ltfu",                  "Lost to followup",                 
+   "eligibility",             "level",   "eligibility_no",                    "Ineligible",                   
+   "eligibility",             "level",   "eligibility_unknown",               "Eligibility \nunknown",              
+   "eligibility",             "level",   "eligibility_yes",                   "Eligible",                  
+   "consent_scheduling",      "label",   "consent_scheduling",                "Consent Scheduling",               
+   "consent_scheduling",      "level",   "consent_scheduling_ltfu",           "Lost to \nfollowup",          
+   "consent_scheduling",      "level",   "consent_scheduling_unknown",        "Unknown",       
+   "consent_scheduling",      "level",   "consent_scheduling_yes",            "Scheduled",           
+   "consent",                 "label",   "consent",                           "Consent",                          
+   "consent",                 "level",   "consent_no",                        "Did not \nconsent",                       
+   "consent",                 "level",   "consent_unknown",                   "Unknown",                  
+   "consent",                 "level",   "consent_yes",                       "Consented"
+)
+```
+
+`create_mermaid_diagram()` represents the data graphically:
+
+```{r example_diagram, echo = FALSE}
+create_mermaid_diagram(
+  participant_level_progress = consent_tracking_data,
+  parents = steps$parent,
+  children = steps$child,
+  pretty_labels = pretty_labels)
+```
+
+`create_table()` represents the same data in a table:
+
+```{r example_table, echo = FALSE, warning=FALSE}
+create_table(
+  participant_level_progress = consent_tracking_data,
+  children = steps$child,
+  pretty_labels = pretty_labels
+)
+```
+
+# Getting started
+
+Using `participantFlowDiagram` requires a detailed dataset, `participant_level_progress`, that documents each step in the workflow. The dataset has multiple constraints:
+
+- Each column must be as a factor. Each level in the factor is a possible state at that step.
+- Each factor should define all possible levels at that step. This in includes an unknown level to be set when no other logic at that level is true.
+- Each factor value needs to be unique across all the factors because the factor values will be nodes names in a diagram. It is easy to manage this by prefixing each factor level with the column name.
+- The steps should appear in the order of the workflow as this order governs the order in the table. While not required, this will improve the readability of the summary table.
+- At each step, the count of non-null values should equal the count for the parent node. 
+
+This package provides an example dataset, [consent_tracking_data.csv](./consent_tracking_data.csv) that describes a multi-step recruiting, eligibility and consent workflow. This dataset conforms to the above constraints. 
+
+```{r describe-example-data, message=FALSE}
+consent_tracking_data <- readr::read_csv("consent_tracking_data.csv") |>
+  dplyr::mutate(dplyr::across(dplyr::everything(), as.factor))
+
+consent_tracking_data |> str()
+```
+
+The second required dataset is a small, two-column dataset that names the parent node and the child step at each step in the project.
+
+```{r describe-steps-dataset}
+steps
+```
+
+A third dataset, `pretty_labels`, can be generated with the package function `get_pretty_labels_template()` 
+
+```{r describe-pretty-labels}
+pretty_labels_template <- get_pretty_labels_template(
+  participant_level_progress = consent_tracking_data,
+  parents = steps$parent,
+  children = steps$child
+)
+
+pretty_labels_template
+```
+
+The output of `get_pretty_labels_template()` can be used as-is in the inputs to `create_mermaid_diagram()` and `create_table()`. The labels will be 
+_plain_ labels taken from the factor levels and column names. Putting all that together, the code looks like this:
+
+```{r plain-labels-code, echo = TRUE, message = FALSE}
+
+consent_tracking_data <- readr::read_csv("consent_tracking_data.csv") |>
+  dplyr::mutate(dplyr::across(dplyr::everything(), as.factor))
+
+# Name the parent node and family name of the children at each step
+steps <- dplyr::tribble(
+  ~parent,                           ~child,
+  "Approached",                      "interest",
+  "interest_yes",                    "eligibility_scheduling",
+  "eligibility_scheduling_willing",  "eligibility",
+  "eligibility_yes",                 "consent_scheduling",
+  "consent_scheduling_yes",          "consent"
+)
+
+pretty_labels <- get_pretty_labels_template(
+  participant_level_progress = consent_tracking_data,
+  parents = steps$parent,
+  children = steps$child
+)
+
+diagram <- create_mermaid_diagram(
+  participant_level_progress = consent_tracking_data,
+  parents = steps$parent,
+  children = steps$child,
+  pretty_labels = pretty_labels)
+```
+
+
+It generates this diagram with plain labels.
+
+```{r plain-labels-plot, echo = FALSE}
+diagram
+```
+
+
+To get control of the labels, save the output of `get_pretty_labels_template()` and edit the `pretty_label` column. You can write tribble code using `timesaveR::to_tribble()` to write tribble code and paste that inline in your code. `get_pretty_labels_template()` uses the same value as `plain_label` in  `pretty_label`. Edit the `pretty_label` column as needed. 
+
+Use `\n` to get new line characters to wrap the text of the pretty labels in the diagram. These newline codes will be ignored in the table. 
+
+```{r}
+pretty_labels_template <- get_pretty_labels_template(
+  participant_level_progress = consent_tracking_data,
+  parents = steps$parent,
+  children = steps$child
+)
+
+# Uncomment this code and run it to turn the pretty_labels_template
+# into dplyr::tribble() code. Paste the tribble code below assigning
+# it to the object "pretty_labels", re-comment these lines,
+# then edit the text in the new_label column to make the pretty
+# labels you'd like to see in the gtsummary table and the mermaid diagram.
+#
+# devtools::install_github("LukasWallrich/timesaveR")
+# pretty_labels_template |>
+#   timesaveR::to_tribble(show = T)
+
+pretty_labels <- tibble::tribble(
+  ~variable,                 ~row_type, ~plain_label,                        ~pretty_label,                       
+   "interest",                "label",   "interest",                          "Interest",                         
+   "interest",                "level",   "interest_no",                       "Interested",                      
+   "interest",                "level",   "interest_yes",                      "Not interested",                     
+   "eligibility_scheduling",  "label",   "eligibility_scheduling",            "Eligibility Scheduling",           
+   "eligibility_scheduling",  "level",   "eligibility_scheduling_ltfu",       "Lost to follow-up",      
+   "eligibility_scheduling",  "level",   "eligibility_scheduling_unknown",    "Unknown",   
+   "eligibility_scheduling",  "level",   "eligibility_scheduling_unwilling",  "Unwilling to\n schedule", 
+   "eligibility_scheduling",  "level",   "eligibility_scheduling_willing",    "Willing to\n schedule",   
+   "eligibility",             "label",   "eligibility",                       "Eligibility",                      
+   "eligibility",             "level",   "eligibility_ltfu",                  "Lost to followup",                 
+   "eligibility",             "level",   "eligibility_no",                    "Ineligible",                   
+   "eligibility",             "level",   "eligibility_unknown",               "Eligibility \nunknown",              
+   "eligibility",             "level",   "eligibility_yes",                   "Eligible",                  
+   "consent_scheduling",      "label",   "consent_scheduling",                "Consent Scheduling",               
+   "consent_scheduling",      "level",   "consent_scheduling_ltfu",           "Lost to \nfollowup",          
+   "consent_scheduling",      "level",   "consent_scheduling_unknown",        "Unknown",       
+   "consent_scheduling",      "level",   "consent_scheduling_yes",            "Scheduled",           
+   "consent",                 "label",   "consent",                           "Consent",                          
+   "consent",                 "level",   "consent_no",                        "Did not \nconsent",                       
+   "consent",                 "level",   "consent_unknown",                   "Unknown",                  
+   "consent",                 "level",   "consent_yes",                       "Consented"
+)
+```
+
+These labels will produce the diagram and table on [Overview](#overview).

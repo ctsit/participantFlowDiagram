@@ -1,0 +1,8 @@
+^participantFlowDiagram\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^CITATION\.cff$
+^prod\.env$
+^test_it\.R$
+^vignettes/articles$
+^junk/.*

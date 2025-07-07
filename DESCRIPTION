@@ -1,0 +1,65 @@
+Package: participantFlowDiagram
+Type: Package
+Title: Graphically shows the progress of research participants through a study protocol
+Version: 0.1.0
+Authors@R: c(
+  person("Philip", "Chase",
+        email = "pbc@ufl.edu",
+        role = c("aut", "cre"),
+        comment=c(ORCID = "0000-0002-5318-9420")),
+  person("Sai Pavan", "Kamma",
+        email = "saipavankamma@ufl.edu",
+        role = "aut",
+        comment=c(ORCID = "0009-0004-4619-0409")),
+  person("Laurence", "James-Woodley",
+        email = "lawjames1@ufl.edu",
+        role = "aut",
+        comment=c(ORCID = "0000-0002-6418-2742")),
+  person("Taryn", "Stoffs",
+        email = "tls@ufl.edu",
+        role = "ctb",
+        comment=c(ORCID = "0000-0002-0830-8179")),
+  person("Christopher", "Barnes",
+        email = "cpb@ufl.edu",
+        role = "ctb",
+        comment=c(ORCID = "0000-0001-7114-1992")),
+  person("Kathryn", "Carpenter",
+        email = "kathryn.carpenter@jax.ufl.edu",
+        role = "ctb"),
+  person("Natalie", "Williams",
+        role = "ctb",
+        comment=c(ORCID = "0009-0004-2983-1542")),
+  person(
+        given = "Raymond",
+        family = "Balise",
+        role = "ctb",
+        email = "balise@miami.edu",
+        comment = c(ORCID = "0000-0002-9856-5901"))
+  )
+Description: participantFlowDiagram helps a study team find issues in the progress of study participants through a research protocol by graphically presenting summary data of their progress.
+License: Apache License (>= 2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Suggests: 
+    conflicted,
+    glue,
+    gtsummary (>= 2.0.3),
+    here,
+    knitr,
+    roxygen2,
+    tidyverse
+Remotes:
+    github::ctsit/participantFlowDiagram
+VignetteBuilder: knitr
+Imports: 
+    checkmate,
+    DiagrammeR,
+    dplyr,
+    forcats,
+    purrr,
+    readr,
+    rlang,
+    stringr,
+    tibble
+Config/Needs/website: rmarkdown
