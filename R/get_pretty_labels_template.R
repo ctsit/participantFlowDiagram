@@ -1,4 +1,5 @@
-#' get_pretty_labels_template
+#' Create a dataframe of steps and factor levels in the study
+#' workflow to facilitate label replacement
 #'
 #' @description
 #' Generate a dataframe describing the steps and factor levels in the study

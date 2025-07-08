@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_mermaid_diagram.R
 \name{create_mermaid_diagram}
 \alias{create_mermaid_diagram}
-\title{create_mermaid_diagram}
+\title{Create a diagram to show participant progress through a study workflow}
 \usage{
 create_mermaid_diagram(
   participant_level_progress,
@@ -32,7 +32,9 @@ rendered into a diagram or if the syntax should be returned
 A plot of the study progress or the mermaid syntax to generate it
 }
 \description{
-Generate a mermaid diagram from a detailed dataframe, describing the
+Create a diagram to show participant progress through a study workflow via
+the counts of study participants who reach each point in the study workflow.
+Create the diagram diagram from a detailed dataframe, describing the
 progress of each research participant, the parent child relationships
 that define the study progression, and pretty labels for each state
 and step in the protocol.

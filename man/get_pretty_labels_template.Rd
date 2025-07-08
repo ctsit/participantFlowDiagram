@@ -2,7 +2,8 @@
 % Please edit documentation in R/get_pretty_labels_template.R
 \name{get_pretty_labels_template}
 \alias{get_pretty_labels_template}
-\title{get_pretty_labels_template}
+\title{Create a dataframe of steps and factor levels in the study
+workflow to facilitate label replacement}
 \usage{
 get_pretty_labels_template(participant_level_progress, parents, children)
 }
