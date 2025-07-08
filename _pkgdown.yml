@@ -1,0 +1,16 @@
+template:
+  bootstrap: 5
+
+reference:
+  - title: "Public functions"
+    desc: >
+      These are the public-facing functions. 
+    contents:
+      - starts_with("create_")
+      - get_pretty_labels_template
+  - title: "Internal functions"
+    desc: >
+      These are the internal functions. They are rarely used.
+    contents:
+      - get_participant_level_progress_pretty
+      - get_table_summary_labels

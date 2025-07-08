@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_table_summary_labels.R
 \name{get_table_summary_labels}
 \alias{get_table_summary_labels}
-\title{get_table_summary_labels}
+\title{Create a named vector for relabeling a gtsummary table}
 \usage{
 get_table_summary_labels(pretty_labels)
 }
@@ -15,7 +15,7 @@ templated values.}
 a named vector of pretty labels with the plain labels as the names
 }
 \description{
-get a named vector we can use to relabel a gtsummary table
+Get a named vector we can use to relabel a gtsummary table
 }
 \examples{
 \dontrun{
