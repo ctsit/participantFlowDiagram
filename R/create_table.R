@@ -1,6 +1,7 @@
-#' Create a table
+#' Create a table to summarize participant progress
+#'
 #' @description
-#' Create a table to summarize participant level progress
+#' Create a table showing the counts of study participants who reached each point in the study workflow
 #'
 #' @param participant_level_progress A detail dataframe describing the progress
 #'        of each research participant

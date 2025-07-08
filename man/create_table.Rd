@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_table.R
 \name{create_table}
 \alias{create_table}
-\title{Create a table}
+\title{Create a table to summarize participant progress}
 \usage{
 create_table(participant_level_progress, children, pretty_labels)
 }
@@ -21,7 +21,7 @@ a gtsummary::tbl_summary() object that describes
 \code{participant_level_progress} using the labels in \code{pretty_labels}
 }
 \description{
-Create a table to summarize participant level progress
+Create a table showing the counts of study participants who reached each point in the study workflow
 }
 \examples{
 \dontrun{

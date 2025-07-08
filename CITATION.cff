@@ -5,7 +5,7 @@ cff-version: 1.2.0
 title: participantFlowDiagram - an R package the graphically shows the progress of research participants through a study protocol
 message:
   If you use this software, please cite it with the metadata
-  in CITATION.cff
+  in CITATION.cff or https://doi.org/10.5281/zenodo.15837864
 type: software
 authors:
   - family-names: Chase
@@ -40,6 +40,7 @@ authors:
   - family-names: Carpenter
     given-names: Kathryn
     affiliation: University of Florida
+    orcid: https://orcid.org/0009-0006-8898-0593
   - family-names: Balise
     given-names: Raymond
     affiliation: University of Miami
@@ -55,6 +56,9 @@ abstract:
 keywords:
   - clinical science
   - data management
+identifiers:
+- type: doi
+  value: 10.5281/zenodo.15837864
 license: Apache-2.0
 version: 0.1.0
 date-released: '2025-07-08'

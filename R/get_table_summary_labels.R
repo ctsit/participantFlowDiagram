@@ -1,6 +1,7 @@
-#' get_table_summary_labels
+#' Create a named vector for relabeling a gtsummary table
+#'
 #' @description
-#' get a named vector we can use to relabel a gtsummary table
+#' Get a named vector we can use to relabel a gtsummary table
 #'
 #' @param pretty_labels a data like those returned by
 #' [get_pretty_labels_template()], but with pretty labels in place of the

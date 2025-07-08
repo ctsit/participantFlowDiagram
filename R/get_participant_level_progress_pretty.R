@@ -1,6 +1,8 @@
-#' get_participant_level_progress_pretty
+#' Replace plain text labels with pretty labels in `participant_level_progress`
+#'
 #' @description
 #' Replace plain text labels with pretty labels in `participant_level_progress`
+#' in preparation for creating a gtsummary table.
 #'
 #' @param participant_level_progress A detail dataframe describing the progress
 #'        of each research participant

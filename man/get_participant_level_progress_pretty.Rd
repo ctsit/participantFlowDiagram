@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_participant_level_progress_pretty.R
 \name{get_participant_level_progress_pretty}
 \alias{get_participant_level_progress_pretty}
-\title{get_participant_level_progress_pretty}
+\title{Replace plain text labels with pretty labels in \code{participant_level_progress}}
 \usage{
 get_participant_level_progress_pretty(
   participant_level_progress,
@@ -24,6 +24,7 @@ labels.
 }
 \description{
 Replace plain text labels with pretty labels in \code{participant_level_progress}
+in preparation for creating a gtsummary table.
 }
 \examples{
 \dontrun{

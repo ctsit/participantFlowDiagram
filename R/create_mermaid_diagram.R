@@ -1,7 +1,9 @@
-#' create_mermaid_diagram
+#' Create a diagram to show participant progress through a study workflow
 #'
 #' @description
-#' Generate a mermaid diagram from a detailed dataframe, describing the
+#' Create a diagram to show participant progress through a study workflow via
+#' the counts of study participants who reach each point in the study workflow.
+#' Create the diagram diagram from a detailed dataframe, describing the
 #' progress of each research participant, the parent child relationships
 #' that define the study progression, and pretty labels for each state
 #' and step in the protocol.
