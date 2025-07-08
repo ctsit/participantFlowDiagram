@@ -1,3 +1,7 @@
+# participantFlowDiagram 0.1.1 (released 2025-07-08)
+- Update function documentation in package (@pbchase, #1)
+- Add an ORCID, project URLs, and the DOI (@pbchase, #1)
+
 # participantFlowDiagram 0.1.0 (released 2025-07-08)
 * Initial release (@pbchase, @saipavan10-git, @ljwoodley)
 * Provides these public functions:
