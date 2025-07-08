@@ -25,7 +25,8 @@ Authors@R: c(
         comment=c(ORCID = "0000-0001-7114-1992")),
   person("Kathryn", "Carpenter",
         email = "kathryn.carpenter@jax.ufl.edu",
-        role = "ctb"),
+        role = "ctb",
+        comment=c(ORCID = "0009-0006-8898-0593")),
   person("Natalie", "Williams",
         role = "ctb",
         comment=c(ORCID = "0009-0004-2983-1542")),
@@ -49,8 +50,6 @@ Suggests:
     knitr,
     roxygen2,
     tidyverse
-Remotes:
-    github::ctsit/participantFlowDiagram
 VignetteBuilder: knitr
 Imports: 
     checkmate,
@@ -63,3 +62,5 @@ Imports:
     stringr,
     tibble
 Config/Needs/website: rmarkdown
+URL: https://ctsit.github.io/participantFlowDiagram/, https://github.com/ctsit/participantFlowDiagram/
+BugReports: https://github.com/ctsit/participantFlowDiagram/issues/

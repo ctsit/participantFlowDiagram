@@ -1,6 +1,7 @@
 # participantFlowDiagram
 
 <!-- badges: start -->
+[![DOI](https://zenodo.org/badge/1015697410.svg)](https://doi.org/10.5281/zenodo.15837864)
 [![R-CMD-check](https://github.com/ctsit/participantFlowDiagram/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ctsit/participantFlowDiagram/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
