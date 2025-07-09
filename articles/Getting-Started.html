@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">participantFlowDiagram</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,7 +80,7 @@ with as little code as possible.</p>
 <p><code><a href="../reference/create_mermaid_diagram.html">create_mermaid_diagram()</a></code> represents the data
 graphically:</p>
 <div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:700px;height:432.632880098888px;"></div>
-<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"diagram":"graph TD; Approached[Approached<br/>n = 400]; Approached-->interest_yes[\"Not interested\"<br/>n = 262]; Approached-->interest_no[\"Interested\"<br/>n = 138]; interest_yes-->eligibility_scheduling_willing[\"Willing to <br/> schedule\"<br/>n = 197]; interest_yes-->eligibility_scheduling_unknown[\"Unknown\"<br/>n = 30]; interest_yes-->eligibility_scheduling_ltfu[\"Lost to follow-up\"<br/>n = 19]; interest_yes-->eligibility_scheduling_unwilling[\"Unwilling to <br/> schedule\"<br/>n = 16]; eligibility_scheduling_willing-->eligibility_yes[\"Eligible\"<br/>n = 171]; eligibility_scheduling_willing-->eligibility_no[\"Ineligible\"<br/>n = 13]; eligibility_scheduling_willing-->eligibility_ltfu[\"Lost to followup\"<br/>n = 11]; eligibility_scheduling_willing-->eligibility_unknown[\"Eligibility  <br/>unknown\"<br/>n = 2]; eligibility_yes-->consent_scheduling_yes[\"Scheduled\"<br/>n = 155]; eligibility_yes-->consent_scheduling_unknown[\"Unknown\"<br/>n = 11]; eligibility_yes-->consent_scheduling_ltfu[\"Lost to  <br/>followup\"<br/>n = 5]; consent_scheduling_yes-->consent_yes[\"Consented\"<br/>n = 129]; consent_scheduling_yes-->consent_unknown[\"Unknown\"<br/>n = 24]; consent_scheduling_yes-->consent_no[\"Did not  <br/>consent\"<br/>n = 2]"},"evals":[],"jsHooks":[]}</script><p><code><a href="../reference/create_table.html">create_table()</a></code> represents the same data in a table:</p>
+<script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3">{"x":{"diagram":"graph TD; Approached[Approached<br/>n = 400]; Approached-->interest_yes[\"Interested\"<br/>n = 262]; Approached-->interest_no[\"Not Interested\"<br/>n = 138]; interest_yes-->eligibility_scheduling_willing[\"Willing to <br/> schedule\"<br/>n = 197]; interest_yes-->eligibility_scheduling_unknown[\"Unknown\"<br/>n = 30]; interest_yes-->eligibility_scheduling_ltfu[\"Lost to follow-up\"<br/>n = 19]; interest_yes-->eligibility_scheduling_unwilling[\"Unwilling to <br/> schedule\"<br/>n = 16]; eligibility_scheduling_willing-->eligibility_yes[\"Eligible\"<br/>n = 171]; eligibility_scheduling_willing-->eligibility_no[\"Ineligible\"<br/>n = 13]; eligibility_scheduling_willing-->eligibility_ltfu[\"Lost to followup\"<br/>n = 11]; eligibility_scheduling_willing-->eligibility_unknown[\"Eligibility  <br/>unknown\"<br/>n = 2]; eligibility_yes-->consent_scheduling_yes[\"Scheduled\"<br/>n = 155]; eligibility_yes-->consent_scheduling_unknown[\"Unknown\"<br/>n = 11]; eligibility_yes-->consent_scheduling_ltfu[\"Lost to  <br/>followup\"<br/>n = 5]; consent_scheduling_yes-->consent_yes[\"Consented\"<br/>n = 129]; consent_scheduling_yes-->consent_unknown[\"Unknown\"<br/>n = 24]; consent_scheduling_yes-->consent_no[\"Did not  <br/>consent\"<br/>n = 2]"},"evals":[],"jsHooks":[]}</script><p><code><a href="../reference/create_table.html">create_table()</a></code> represents the same data in a table:</p>
 <div id="mwlefoodfi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>#mwlefoodfi table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -543,11 +543,11 @@ graphically:</p>
 <td headers="stat_0" class="gt_row gt_center"><br></td>
 </tr>
 <tr>
-<td headers="label" class="gt_row gt_left">    Not interested</td>
+<td headers="label" class="gt_row gt_left">    Interested</td>
 <td headers="stat_0" class="gt_row gt_center">262 (66%)</td>
 </tr>
 <tr>
-<td headers="label" class="gt_row gt_left">    Interested</td>
+<td headers="label" class="gt_row gt_left">    Not Interested</td>
 <td headers="stat_0" class="gt_row gt_center">138 (35%)</td>
 </tr>
 <tr>
@@ -770,8 +770,8 @@ the table.</p>
 <span><span class="va">pretty_labels</span> <span class="op">&lt;-</span> <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span>
 <span>  <span class="op">~</span><span class="va">variable</span>,                 <span class="op">~</span><span class="va">row_type</span>, <span class="op">~</span><span class="va">plain_label</span>,                        <span class="op">~</span><span class="va">pretty_label</span>,                       </span>
 <span>   <span class="st">"interest"</span>,                <span class="st">"label"</span>,   <span class="st">"interest"</span>,                          <span class="st">"Interest"</span>,                         </span>
-<span>   <span class="st">"interest"</span>,                <span class="st">"level"</span>,   <span class="st">"interest_no"</span>,                       <span class="st">"Interested"</span>,                      </span>
-<span>   <span class="st">"interest"</span>,                <span class="st">"level"</span>,   <span class="st">"interest_yes"</span>,                      <span class="st">"Not interested"</span>,                     </span>
+<span>   <span class="st">"interest"</span>,                <span class="st">"level"</span>,   <span class="st">"interest_no"</span>,                       <span class="st">"Not Interested"</span>,                      </span>
+<span>   <span class="st">"interest"</span>,                <span class="st">"level"</span>,   <span class="st">"interest_yes"</span>,                      <span class="st">"Interested"</span>,                     </span>
 <span>   <span class="st">"eligibility_scheduling"</span>,  <span class="st">"label"</span>,   <span class="st">"eligibility_scheduling"</span>,            <span class="st">"Eligibility Scheduling"</span>,           </span>
 <span>   <span class="st">"eligibility_scheduling"</span>,  <span class="st">"level"</span>,   <span class="st">"eligibility_scheduling_ltfu"</span>,       <span class="st">"Lost to follow-up"</span>,      </span>
 <span>   <span class="st">"eligibility_scheduling"</span>,  <span class="st">"level"</span>,   <span class="st">"eligibility_scheduling_unknown"</span>,    <span class="st">"Unknown"</span>,   </span>
