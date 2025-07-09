@@ -1,7 +1,7 @@
 Package: participantFlowDiagram
 Type: Package
 Title: Graphically shows the progress of research participants through a study protocol
-Version: 0.1.1
+Version: 0.1.2
 Authors@R: c(
   person("Philip", "Chase",
         email = "pbc@ufl.edu",
