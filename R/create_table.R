@@ -10,7 +10,7 @@
 #' @param children A vector enumerating the child categorical level below the
 #'        corresponding parent
 #'
-#' @returns a gtsummary::tbl_summary() object that describes
+#' @returns a [gtsummary::tbl_summary()] object that describes
 #'          `participant_level_progress` using the labels in `pretty_labels`
 #' @export
 #'

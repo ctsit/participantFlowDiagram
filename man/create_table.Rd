@@ -17,7 +17,7 @@ corresponding parent}
 and each factor level}
 }
 \value{
-a gtsummary::tbl_summary() object that describes
+a \code{\link[gtsummary:tbl_summary]{gtsummary::tbl_summary()}} object that describes
 \code{participant_level_progress} using the labels in \code{pretty_labels}
 }
 \description{

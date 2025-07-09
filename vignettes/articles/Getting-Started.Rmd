@@ -51,8 +51,8 @@ pretty_labels_template <- get_pretty_labels_template(
 pretty_labels <- tibble::tribble(
   ~variable,                 ~row_type, ~plain_label,                        ~pretty_label,                       
    "interest",                "label",   "interest",                          "Interest",                         
-   "interest",                "level",   "interest_no",                       "Interested",                      
-   "interest",                "level",   "interest_yes",                      "Not interested",                     
+   "interest",                "level",   "interest_no",                       "Not Interested",                      
+   "interest",                "level",   "interest_yes",                      "Interested",                     
    "eligibility_scheduling",  "label",   "eligibility_scheduling",            "Eligibility Scheduling",           
    "eligibility_scheduling",  "level",   "eligibility_scheduling_ltfu",       "Lost to follow-up",      
    "eligibility_scheduling",  "level",   "eligibility_scheduling_unknown",    "Unknown",   
@@ -194,8 +194,8 @@ pretty_labels_template <- get_pretty_labels_template(
 pretty_labels <- tibble::tribble(
   ~variable,                 ~row_type, ~plain_label,                        ~pretty_label,                       
    "interest",                "label",   "interest",                          "Interest",                         
-   "interest",                "level",   "interest_no",                       "Interested",                      
-   "interest",                "level",   "interest_yes",                      "Not interested",                     
+   "interest",                "level",   "interest_no",                       "Not Interested",                      
+   "interest",                "level",   "interest_yes",                      "Interested",                     
    "eligibility_scheduling",  "label",   "eligibility_scheduling",            "Eligibility Scheduling",           
    "eligibility_scheduling",  "level",   "eligibility_scheduling_ltfu",       "Lost to follow-up",      
    "eligibility_scheduling",  "level",   "eligibility_scheduling_unknown",    "Unknown",   
