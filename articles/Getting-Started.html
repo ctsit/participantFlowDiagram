@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">participantFlowDiagram</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.2</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.3</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -628,7 +628,7 @@ consent</td>
 <td headers="stat_0" class="gt_row gt_center">2 (1.3%)</td>
 </tr>
 </tbody>
-<tfoot class="gt_footnotes"><tr>
+<tfoot><tr class="gt_footnotes">
 <td class="gt_footnote" colspan="2">
 <span class="gt_footnote_marks" style="white-space:nowrap;font-style:italic;font-weight:normal;line-height:0;"><sup>1</sup></span> <span class="gt_from_md">n (%)</span>
 </td>
@@ -643,11 +643,11 @@ consent</td>
 dataset, <code>participant_level_progress</code>, that documents each
 step in the workflow. The dataset has multiple constraints:</p>
 <ul>
-<li>Each column must be as a factor. Each level in the factor is a
-possible state at that step.</li>
-<li>Each factor should define all possible levels at that step. This in
-includes an unknown level to be set when no other logic at that level is
-true.</li>
+<li>Each column must be a factor. Each level in the factor is a possible
+state at that step.</li>
+<li>Each factor should define all possible levels at that step. This
+should include an “unknown” level to be set when no other logic at that
+level is true.</li>
 <li>Each factor value needs to be unique across all the factors because
 the factor values will be nodes names in a diagram. It is easy to manage
 this by prefixing each factor level with the column name.</li>
@@ -683,7 +683,7 @@ the parent node and the child step at each step in the project.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> eligibility_scheduling_willing eligibility           </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> eligibility_yes                consent_scheduling    </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> consent_scheduling_yes         consent</span></span></code></pre></div>
-<p>A third dataset, <code>pretty_labels</code>, can be generated with
+<p>A third dataset, <code>pretty_labels</code>, should be generated with
 the package function <code><a href="../reference/get_pretty_labels_template.html">get_pretty_labels_template()</a></code></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pretty_labels_template</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_pretty_labels_template.html">get_pretty_labels_template</a></span><span class="op">(</span></span>
@@ -742,11 +742,12 @@ together, the code looks like this:</p>
 <div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-e5c8c404fe174e4c81bd" style="width:700px;height:432.632880098888px;"></div>
 <script type="application/json" data-for="htmlwidget-e5c8c404fe174e4c81bd">{"x":{"diagram":"graph TD; Approached[Approached<br/>n = 400]; Approached-->interest_yes[\"interest_yes\"<br/>n = 262]; Approached-->interest_no[\"interest_no\"<br/>n = 138]; interest_yes-->eligibility_scheduling_willing[\"eligibility_scheduling_willing\"<br/>n = 197]; interest_yes-->eligibility_scheduling_unknown[\"eligibility_scheduling_unknown\"<br/>n = 30]; interest_yes-->eligibility_scheduling_ltfu[\"eligibility_scheduling_ltfu\"<br/>n = 19]; interest_yes-->eligibility_scheduling_unwilling[\"eligibility_scheduling_unwilling\"<br/>n = 16]; eligibility_scheduling_willing-->eligibility_yes[\"eligibility_yes\"<br/>n = 171]; eligibility_scheduling_willing-->eligibility_no[\"eligibility_no\"<br/>n = 13]; eligibility_scheduling_willing-->eligibility_ltfu[\"eligibility_ltfu\"<br/>n = 11]; eligibility_scheduling_willing-->eligibility_unknown[\"eligibility_unknown\"<br/>n = 2]; eligibility_yes-->consent_scheduling_yes[\"consent_scheduling_yes\"<br/>n = 155]; eligibility_yes-->consent_scheduling_unknown[\"consent_scheduling_unknown\"<br/>n = 11]; eligibility_yes-->consent_scheduling_ltfu[\"consent_scheduling_ltfu\"<br/>n = 5]; consent_scheduling_yes-->consent_yes[\"consent_yes\"<br/>n = 129]; consent_scheduling_yes-->consent_unknown[\"consent_unknown\"<br/>n = 24]; consent_scheduling_yes-->consent_no[\"consent_no\"<br/>n = 2]"},"evals":[],"jsHooks":[]}</script><p>To get control of the labels, save the output of
 <code><a href="../reference/get_pretty_labels_template.html">get_pretty_labels_template()</a></code> and edit the
-<code>pretty_label</code> column. You can write tribble code using
+<code>pretty_label</code> column. The easiest path is to use
 <code>timesaveR::to_tribble()</code> to write tribble code and paste
 that inline in your code. <code><a href="../reference/get_pretty_labels_template.html">get_pretty_labels_template()</a></code> uses
 the same value as <code>plain_label</code> in <code>pretty_label</code>.
-Edit the <code>pretty_label</code> column as needed.</p>
+Edit the <code>pretty_label</code> column as needed get the labels you’d
+like to see on the nodes.</p>
 <p>Use <code>\n</code> to get new line characters to wrap the text of
 the pretty labels in the diagram. These newline codes will be ignored in
 the table.</p>
