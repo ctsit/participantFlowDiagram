@@ -1,3 +1,6 @@
+# participantFlowDiagram 0.1.3 (released 2025-11-03)
+- Fix grammar and update wording in Getting-Started.Rmd (@pbchase)
+
 # participantFlowDiagram 0.1.2 (released 2025-07-09)
 - Fix label in example diagram and table (@pbchase)
 - Fix reference to gtsummary::tbl_summary() (@pbchase)
