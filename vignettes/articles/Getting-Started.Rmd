@@ -98,8 +98,8 @@ create_table(
 
 Using `participantFlowDiagram` requires a detailed dataset, `participant_level_progress`, that documents each step in the workflow. The dataset has multiple constraints:
 
-- Each column must be as a factor. Each level in the factor is a possible state at that step.
-- Each factor should define all possible levels at that step. This in includes an unknown level to be set when no other logic at that level is true.
+- Each column must be a factor. Each level in the factor is a possible state at that step.
+- Each factor should define all possible levels at that step. This should include an "unknown" level to be set when no other logic at that level is true.
 - Each factor value needs to be unique across all the factors because the factor values will be nodes names in a diagram. It is easy to manage this by prefixing each factor level with the column name.
 - The steps should appear in the order of the workflow as this order governs the order in the table. While not required, this will improve the readability of the summary table.
 - At each step, the count of non-null values should equal the count for the parent node. 
@@ -119,7 +119,7 @@ The second required dataset is a small, two-column dataset that names the parent
 steps
 ```
 
-A third dataset, `pretty_labels`, can be generated with the package function `get_pretty_labels_template()` 
+A third dataset, `pretty_labels`, should be generated with the package function `get_pretty_labels_template()`
 
 ```{r describe-pretty-labels}
 pretty_labels_template <- get_pretty_labels_template(
@@ -170,7 +170,7 @@ diagram
 ```
 
 
-To get control of the labels, save the output of `get_pretty_labels_template()` and edit the `pretty_label` column. You can write tribble code using `timesaveR::to_tribble()` to write tribble code and paste that inline in your code. `get_pretty_labels_template()` uses the same value as `plain_label` in  `pretty_label`. Edit the `pretty_label` column as needed. 
+To get control of the labels, save the output of `get_pretty_labels_template()` and edit the `pretty_label` column. The easiest path is to use `timesaveR::to_tribble()` to write tribble code and paste that inline in your code. `get_pretty_labels_template()` uses the same value as `plain_label` in  `pretty_label`. Edit the `pretty_label` column as needed get the labels you'd like to see on the nodes.
 
 Use `\n` to get new line characters to wrap the text of the pretty labels in the diagram. These newline codes will be ignored in the table. 
 
